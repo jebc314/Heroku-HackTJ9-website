@@ -1,4 +1,5 @@
-.panel-custom {
+/* For the first panel */
+.panel-first {
     border: 1px solid #ddd;
     box-shadow:none;
     border-top-left-radius: 5px;
@@ -7,19 +8,77 @@
     border-bottom-right-radius: 0px;  
 }
 
-.panel-custom>.panel-heading {
+.panel-first>.panel-heading {
     color: #333;
     background-color: #f5f5f5;
     border-color: #ddd;
     border-radius:0px;
 }
-.panel-custom>.panel-heading>.panel-title {
+.panel-first>.panel-heading>.panel-title {
     font-size: 15px;
     font-family:"Lato", Helvetica, Arial, sans-serif;
     line-height: 1.7;
     padding: 10px;
 }
-.panel-custom>.panel-body {
+.panel-first>.panel-body {
+    border-color: #ddd;
+    font-size: 14px;
+    font-family:"Lato", Helvetica, Arial, sans-serif;
+    padding: 10px;
+}
+
+/* For the middle panels */
+.panel-middle {
+    border: 1px solid #ddd;
+    box-shadow:none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;  
+}
+
+.panel-middle>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    border-radius:0px;
+}
+.panel-middle>.panel-heading>.panel-title {
+    font-size: 15px;
+    font-family:"Lato", Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    padding: 10px;
+}
+.panel-middle>.panel-body {
+    border-color: #ddd;
+    font-size: 14px;
+    font-family:"Lato", Helvetica, Arial, sans-serif;
+    padding: 10px;
+}
+
+/* For the last panel */
+.panel-last {
+    border: 1px solid #ddd;
+    box-shadow:none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;  
+}
+
+.panel-last>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    border-radius:0px;
+}
+.panel-last>.panel-heading>.panel-title {
+    font-size: 15px;
+    font-family:"Lato", Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    padding: 10px;
+}
+.panel-last>.panel-body {
     border-color: #ddd;
     font-size: 14px;
     font-family:"Lato", Helvetica, Arial, sans-serif;

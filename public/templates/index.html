@@ -10,25 +10,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 
-    <title>Document</title>
+    <title>PPPP</title>
 </head>
 <body>
     <div class="col-lg-8 mx-auto p-3 py-md-5">
         <h1>Picnic</h1>
-        <div class="panel panel-custom">
+        <div class="panel panel-first">
             <div class="panel-heading"><span class="panel-title">Please select how hard you want the puzzle to be:</h3></div>
             <div class="panel-body">
-                <select class="form-select" aria-label="Difficulty selection">
+                <select class="form-select" aria-label="Difficulty selection" onchange="$('#submit_button').attr('difficulty', value)">
                     <option selected>Difficulty Level</option>
                     <option value="0">Easy</option>
                     <option value="1">Medium</option>
                     <option value="2">Hard</option>
                 </select>
             </div>
-
         </div>
 
+        <div class="panel panel-middle">
+            <div class="panel-heading"><span class="panel-title">Please select the number of puzzle pieces:</h3></div>
+            <div class="panel-body">
+                <select class="form-select" aria-label="Difficulty selection" onchange="$('#submit_button').attr('pieces_count', value)">
+                    <option selected>Puzzle Pieces Count</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="panel panel-last">
+            <div class="panel-body">
+                <button type="button" class="btn btn-primary" id="submit_button" onclick="call_puzzle({
+                    'difficulty': $('#submit_button').attr('difficulty'),
+                    'pieces_count': $('#submit_button').attr('pieces_count')
+                })">Submit</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
