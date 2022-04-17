@@ -15,24 +15,33 @@ def index():
 
 @app.route('/puzzle', methods=["GET"])
 def puzzle():
+    size = 5
     # test create_stl
-    piece = create_stl(np.array([
-        [[1,1,1],
-        [1,1,1],
-        [1,1,1]],
-        [[0,0,0],
-        [0,1,0],
-        [0,0,0]],
-        [[0,0,0],
-        [0,0,0],
-        [0,0,0]],
-    ]))
+    pieces = []
+    for i in range(4):
+        piece = create_stl(np.array([
+            [[1,1,1],
+            [1,1,1],
+            [1,1,1]],
+            [[0,0,0],
+            [0,1,0],
+            [0,0,0]],
+            [[0,0,0],
+            [0,0,0],
+            [0,0,0]],
+        ]))
+
+        piece.translate(np.array([(size+1)*3*i, 0, 0]))
+
+        pieces.append(piece)
+
+    pieces_combined = mesh.Mesh(np.concatenate([piece.data.copy() for piece in pieces]))
 
     name = ''.join(random.choices(string.ascii_lowercase, k=10))
 
     # save to the files
-    piece.save('static/files/'+name+'.stl')
-    save_png(piece, name)
+    pieces_combined.save('static/files/'+name+'.stl')
+    save_png(pieces_combined, name)
 
     output = {
         'stl': 'files/'+name+'.stl',
@@ -58,7 +67,7 @@ def save_png(piece, name):
     pyplot.savefig('static/files/'+name+'.png')
 
 # input is numpy array
-def create_stl(object):
+def create_stl(object, size=5):
     def create_cube(size=1):
         size = size/2
         # Define the 8 vertices of the cube
@@ -93,8 +102,6 @@ def create_stl(object):
                 cube.vectors[i][j] = vertices[f[j],:]
         
         return cube
-
-    size = 5
 
     cubes = []
 
