@@ -32,7 +32,7 @@
         <div class="panel panel-middle">
             <div class="panel-heading"><span class="panel-title">Please select the number of puzzle pieces:</h3></div>
             <div class="panel-body">
-                <select class="form-select" aria-label="Difficulty selection" onchange="$('#submit_button').attr('pieces_count', value)">
+                <select class="form-select" aria-label="Difficulty selection" onchange="$('#submit_button').attr('piecescount', value)">
                     <option selected>Puzzle Pieces Count</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -45,7 +45,7 @@
             <div class="panel-body">
                 <button type="button" class="btn btn-primary" id="submit_button" onclick="call_puzzle({
                     'difficulty': $('#submit_button').attr('difficulty'),
-                    'pieces_count': $('#submit_button').attr('pieces_count')
+                    'piecescount': $('#submit_button').attr('piecescount')
                 })">Submit</button>
             </div>
         </div>

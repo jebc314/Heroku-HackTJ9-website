@@ -1,4 +1,5 @@
 from flask import Flask, render_template,request
+import json
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,4 +8,8 @@ def index():
 
 @app.route('/puzzle', methods=["GET"])
 def puzzle():
-    return "puzzle output"
+    output = {
+        'difficulty':request.args.get('difficulty'),
+        'piecescount':request.args.get('piecescount')
+    }
+    return json.dumps(output)
