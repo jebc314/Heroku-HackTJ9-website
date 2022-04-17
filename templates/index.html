@@ -58,8 +58,24 @@
 
     <div class="col-lg-8 mx-auto p-3 py-md-5">
         <div class="panel panel-first">
-            <div class="panel-heading"><span class="panel-title">Output:</h3></div>
+            <div class="panel-heading"><span class="panel-title">Retrieve Puzzle using Puzzle ID</h3></div>
             <div class="panel-body">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Puzzle ID:</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="puzzle id" aria-describedby="inputGroup-sizing-default" id="puzzle_id" onkeydown="search(this)">
+                  </div>
+                    <button type="submit" class="btn btn-primary" onclick="load_puzzle($('#puzzle_id').val())">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 mx-auto p-3 py-md-5">
+        <div class="panel panel-first">
+            <div class="panel-heading"><span class="panel-title">Puzzle:</h3></div>
+            <div class="panel-body">
+                <p class="text-center" id="name_text"></p>
                 <img id="piece_image" src="" alt="STL image" class="img-thumbnail mx-auto d-block">
                 <button type="button" class="btn btn-primary" id="save_button" onclick="save_stl()" disabled>Save STL</button>
             </div>

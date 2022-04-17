@@ -15,6 +15,7 @@ function call_puzzle(data) {
             console.log(output);
             $("#piece_image").attr("src", '/static/' + output['png'])
             $("#save_button").attr("file_location", '/static/' + output['stl'])
+            $("#name_text").text(output['name'])
         }
     }
 
@@ -45,8 +46,22 @@ function save_stl() {
         URL.revokeObjectURL(a.href);
         };
 
-    file_location = $('#save_button').attr("file_location")
+        file_location = $('#save_button').attr("file_location")
+        file_name = file_location.slice(file_location.indexOf("/")+1);
 
-        downloadToFile(file_location, 'output.stl', 'application/STL');
+        downloadToFile(file_location, file_name, 'application/STL');
     
+}
+
+function load_puzzle(name) {
+    $("#piece_image").attr("src", '/static/files/' + name + ".png")
+    $("#save_button").attr("file_location", '/static/files/' + name + ".stl")
+    $("#name_text").text(name)
+    $("#save_button").prop('disabled', false);
+}
+
+function search(ele) {
+    if(event.key === 'Enter') {
+        load_puzzle(ele.value);      
+    }
 }

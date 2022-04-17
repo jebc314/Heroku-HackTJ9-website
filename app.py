@@ -4,6 +4,8 @@ import numpy as np
 from stl import mesh
 from mpl_toolkits import mplot3d
 from matplotlib import pyplot
+import random
+import string
 
 app = Flask(__name__)
 
@@ -26,7 +28,7 @@ def puzzle():
         [0,0,0]],
     ]))
 
-    name = "cube"
+    name = ''.join(random.choices(string.ascii_lowercase, k=10))
 
     # save to the files
     piece.save('static/files/'+name+'.stl')
@@ -34,7 +36,8 @@ def puzzle():
 
     output = {
         'stl': 'files/'+name+'.stl',
-        'png':'files/'+name+'.png'
+        'png':'files/'+name+'.png',
+        'name':name
     }
 
     return json.dumps(output)
