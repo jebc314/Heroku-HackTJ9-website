@@ -12,4 +12,22 @@ function call_puzzle(data) {
             console.log(output);
         }
     }
+
+    var amount = 0;
+    var id;
+
+    id = setInterval(function(){
+        $('#progress').attr("style", "width: "+ amount + "%");
+        $("#progress").attr("aria-valuenow", amount);
+
+        if (amount == 100) {
+            clearInterval(id);
+        }
+
+        amount += 10;        
+    }, 500);
+}
+
+function download_stl() {
+    
 }
